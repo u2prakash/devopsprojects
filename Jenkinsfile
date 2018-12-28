@@ -11,8 +11,8 @@ node{
 		sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@54.209.176.200:/opt/tomcat9/webapps/'
 	}
 	}
-	stage('Email Notification'){
-	mail bcc: '', body: 'This is body', cc: '', from: 'prabhatiitbhu@gmail.com', replyTo: 'prabhatiitbhu@gmail.com', subject: 'This is Subject', to: 'prabhat@aptence.com'
+	stage('Slack Notification'){
+	slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#devops', color: '#439FE0', message: 'Build Started: "${env.JOB_NAME}" "${env.BUILD_NUMBER}"', teamDomain: 'devops-dxa2539', tokenCredentialId: 'slack-secret'
 	}
 
 }
