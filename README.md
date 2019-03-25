@@ -110,11 +110,11 @@ echo $JAVA_HOME
 ```
 cd /opt
 
-sudo wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
+sudo wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17.tar.gz
 
-sudo tar -xvf apache-tomcat-9.0.14.tar.gz
+sudo tar -xvf apache-tomcat-9.0.17.tar.gz
 
-sudo mv apache-tomcat-9.0.14 tomcat9
+sudo mv apache-tomcat-9.0.17 tomcat9
 
 echo "export CATALINA_HOME="/opt/tomcat9"" >> ~/.bashrc
 
