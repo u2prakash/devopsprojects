@@ -34,6 +34,18 @@ Enter to keep the current selection[+], or type selection number: 2
 java -version
 
 ```
+update JAVA_HOME
+
+```
+nano .bash_profile
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64/jre
+export PATH=$PATH:$JAVA_HOME/bin
+
+source .bash_profile
+
+```
+install jenkins
 
 ```
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
