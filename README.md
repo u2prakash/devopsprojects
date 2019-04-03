@@ -57,6 +57,27 @@ sudo service jenkins start
 
 ```
 
+Install Docker 
+
+```
+sudo yum check-update
+
+curl -fsSL https://get.docker.com/ | sh
+
+sudo systemctl start docker
+
+sudo systemctl status docker
+
+sudo systemctl enable docker
+
+sudo usermod -aG docker $(whoami)
+
+sudo usermod -aG docker root jenkins
+
+sudo service jenkins restart
+
+```
+
 Install Apache Maven
 
 ```
