@@ -1,10 +1,11 @@
 node{
  stage('Git Checkout'){
-	git 'https://github.com/prabhatpankaj/devopsprojects'  
+	git branch: 'dockercicd', url: 'https://github.com/prabhatpankaj/devopsprojects.git'  
  }
  stage('Maven Package'){
-	sh 'mvn clean package'
-	sh 'mv target/myweb*.war target/myweb.war'
+	def mvnHome = tool name: 'maven-3', type: 'maven'
+	sh "${mvnHome}/bin/mvn clean package"
+ 	sh 'mv target/myweb*.war target/myweb.war'
  }
  
  stage('Build Docker Imager'){
@@ -22,7 +23,7 @@ node{
 	try{
 		def dockerRm = 'docker rm -f myweb'
 		sshagent(['docker-dev']) {
-			sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.17.196 ${dockerRm}"
+			sh "ssh -o StrictHostKeyChecking=no ec2-user@3.83.43.200 ${dockerRm}"
 		}
 	}catch(error){
 		//  do nothing if there is an exception
@@ -31,7 +32,7 @@ node{
  stage('Deploy to Dev Environment'){
    def dockerRun = 'docker run -d -p 8080:8080 --name myweb prabhatiitbhu/myweb:0.0.1 '
    sshagent(['docker-dev']) {
-    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.17.196 ${dockerRun}"
+    sh "ssh -o StrictHostKeyChecking=no ec2-user@3.83.43.200 ${dockerRun}"
    }
 
  }
