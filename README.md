@@ -77,44 +77,16 @@ sudo yum install git -y
 
 ## Tomcat server Installation
 
-install and configure java and java_home
-
-```
-sudo yum update
-
-sudo yum list | grep java-1.8
-
-sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
-
-sudo update-alternatives --config java
-
-```
-
-Enter to keep the current selection[+], or type selection number: 2
-
-* update JAVA_HOME
-
-```
-nano .bashrc
-
-export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64"
-PATH=$JAVA_HOME/bin:$PATH
-
-source .bashrc
-
-echo $JAVA_HOME
-```
-
 * Installing Apache Tomcat 9
 
 ```
 cd /opt
 
-sudo wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17.tar.gz
+sudo wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.21/bin/apache-tomcat-9.0.21.tar.gz
 
-sudo tar -xvf apache-tomcat-9.0.17.tar.gz
+sudo tar -xvf apache-tomcat-9.0.21.tar.gz
 
-sudo mv apache-tomcat-9.0.17 tomcat9
+sudo mv apache-tomcat-9.0.21 tomcat9
 
 echo "export CATALINA_HOME="/opt/tomcat9"" >> ~/.bashrc
 
