@@ -12,7 +12,7 @@ node{
 		}
 	}
 	stage('Email Notification'){
-	mail bcc: '', body: 'This is body', cc: '', from: 'prabhatiitbhu@gmail.com', replyTo: 'prabhatiitbhu@gmail.com', subject: 'This is Subject', to: 'prabhat@aptence.com'
+	mail bcc: '', body: 'nice to have sendGrid', cc: 'freshlink4@yahoo.com', from: 'freshlink4@gmail.com', replyTo: 'smtpjenikins', subject: 'THis is from jenkins ', to: 'freshlink4@gmail.com'
 	}
 
 }
