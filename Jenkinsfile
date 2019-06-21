@@ -3,7 +3,7 @@ node{
 		git branch: 'smtpjenkins', url: 'https://github.com/u2prakash/devopsprojects.git'
 	}
 	stage('Compile-Package'){
-		def mvnHome = tool name: 'mymaven-3.5.4', type: 'maven'
+		def mvnHome = tool name: 'mymaven', type: 'maven'
 		sh "${mvnHome}/bin/mvn package"
 	}
 	
